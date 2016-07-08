@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Rommiematic</string>
+    <string name="login.edt.user">Usuario</string>
+    <string name="login.edt.password">Contraseña</string>
+    <string name="login.btn.signin">Iniciar sesión</string>
+    <string name="login.btn.signup">Crear cuenta</string>
 </resources>
