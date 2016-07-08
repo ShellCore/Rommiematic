@@ -4,4 +4,9 @@
     <string name="login.edt.password">Contraseña</string>
     <string name="login.btn.signin">Iniciar sesión</string>
     <string name="login.btn.signup">Crear cuenta</string>
+    
+    <string name="login.notice.message.useradded">El usuario ha sido creado correctamente</string>
+
+    <string name="login.error.message.signin">Imposible iniciar sesión (%s)</string>
+    <string name="login.error.message.signup">Imposible registrar un nuevo usuario (%s)</string>
 </resources>
