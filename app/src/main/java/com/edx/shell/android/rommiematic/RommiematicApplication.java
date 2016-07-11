@@ -8,6 +8,10 @@ import com.edx.shell.android.rommiematic.login.di.DaggerLoginComponent;
 import com.edx.shell.android.rommiematic.login.di.LoginComponent;
 import com.edx.shell.android.rommiematic.login.di.LoginModule;
 import com.edx.shell.android.rommiematic.login.ui.LoginView;
+import com.edx.shell.android.rommiematic.main.di.DaggerMainComponent;
+import com.edx.shell.android.rommiematic.main.di.MainComponent;
+import com.edx.shell.android.rommiematic.main.di.MainModule;
+import com.edx.shell.android.rommiematic.main.ui.MainView;
 import com.firebase.client.Firebase;
 
 /**
@@ -19,6 +23,7 @@ public class RommiematicApplication extends Application {
     public static final String EMAIL_KEY = "email";
     public static final String SHARED_PREFERENCES_NAME = "UserPrefs";
     public static final String FIREBASE_URL = "https://rommiematic.firebaseio.com/";
+    public static final String ABOUT_URL = "http://shellcore.github.io/Perfil-personal";
 
     private RommiematicApplicationModule appModule;
     private DomainModule domainModule;
@@ -53,6 +58,15 @@ public class RommiematicApplication extends Application {
                 .domainModule(domainModule)
                 .libsModule(new LibsModule(null))
                 .loginModule(new LoginModule(view))
+                .build();
+    }
+
+    public MainComponent getMainComponent(MainView view) {
+        return DaggerMainComponent.builder()
+                .rommiematicApplicationModule(appModule)
+                .domainModule(domainModule)
+                .libsModule(new LibsModule(null))
+                .mainModule(new MainModule(view))
                 .build();
     }
 }
