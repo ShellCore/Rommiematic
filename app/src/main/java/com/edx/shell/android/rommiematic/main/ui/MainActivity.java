@@ -11,10 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.edx.shell.android.rommiematic.CostActivity;
+import com.edx.shell.android.rommiematic.costs.CostActivity;
 import com.edx.shell.android.rommiematic.R;
 import com.edx.shell.android.rommiematic.RommiematicApplication;
-import com.edx.shell.android.rommiematic.RoomiesActivity;
+import com.edx.shell.android.rommiematic.roomies.RoomiesActivity;
 import com.edx.shell.android.rommiematic.login.ui.LoginActivity;
 import com.edx.shell.android.rommiematic.main.MainPresenter;
 
