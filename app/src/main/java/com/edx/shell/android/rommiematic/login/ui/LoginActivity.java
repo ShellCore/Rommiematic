@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.edx.shell.android.rommiematic.MainActivity;
+import com.edx.shell.android.rommiematic.main.ui.MainActivity;
 import com.edx.shell.android.rommiematic.R;
 import com.edx.shell.android.rommiematic.RommiematicApplication;
 import com.edx.shell.android.rommiematic.login.LoginPresenter;
@@ -28,8 +28,6 @@ import butterknife.OnClick;
  */
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
-    @Bind(R.id.container)
-    CoordinatorLayout container;
     // Variables
     private RommiematicApplication app;
 
@@ -39,8 +37,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Inject
     SharedPreferences sharedPreferences;
 
-
     // Componentes de la vlista
+    @Bind(R.id.container)
+    CoordinatorLayout container;
     @Bind(R.id.edt_user)
     EditText edtUser;
     @Bind(R.id.til_user)
@@ -113,7 +112,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void navigateToMainScreen() {
-        startActivity(new Intent(this, MainActivity.class));
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
