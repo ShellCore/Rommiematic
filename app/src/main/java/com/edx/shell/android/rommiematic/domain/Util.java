@@ -11,7 +11,7 @@ public class Util {
     // Ubicación para obtener el avatar del usuario por el servicio Gravatar.
     public static final String GRAVATAR_URL = "http://www.gravatar.com/avatar/";
 
-    public String getAvatarUrl(String email) {
+    public static String getAvatarUrl(String email) {
         return GRAVATAR_URL + md5(email) + "?s=64";
     }
 
@@ -20,7 +20,7 @@ public class Util {
      * @param s
      * @return
      */
-    private String md5(final String s) {
+    private static String md5(final String s) {
         final String MD5 = "MD5";
         try {
             MessageDigest digest = MessageDigest.getInstance(MD5);
