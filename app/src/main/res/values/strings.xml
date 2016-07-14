@@ -11,4 +11,12 @@
     <string name="login.error.message.signup">Imposible registrar un nuevo usuario (%s)</string>
     <string name="global.menu.action.logout">Cerrar sesión</string>
     <string name="global.menu.action.about">Acerca de</string>
+
+    <string name="addContact.message.title">Agregar contacto</string>
+    <string name="addContact.message.add">Aceptar</string>
+    <string name="addContact.message.cancel">Cancelar</string>
+    <string name="addContact.message.contactAdded">Contacto agregado exitosamente</string>
+    <string name="addContact.error.message">Imposible agregar, usuario no existente</string>
+    <string name="addContact.hint.email">Correo electrónico</string>
+    <string name="roomies.title">Roomies</string>
 </resources>

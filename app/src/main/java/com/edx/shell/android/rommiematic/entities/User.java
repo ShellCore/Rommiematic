@@ -1,6 +1,6 @@
 package com.edx.shell.android.rommiematic.entities;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * @author Shell_Core
@@ -8,7 +8,7 @@ import java.util.List;
 public class User {
 
     private String email;
-    private List<String> roomies;
+    Map<String, Boolean> contacts;
 
     public String getEmail() {
         return email;
@@ -18,11 +18,23 @@ public class User {
         this.email = email;
     }
 
-    public List<String> getRoomies() {
-        return roomies;
+    public Map<String, Boolean> getContacts() {
+        return contacts;
     }
 
-    public void setRoomies(List<String> roomies) {
-        this.roomies = roomies;
+    public void setContacts(Map<String, Boolean> contacts) {
+        this.contacts = contacts;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean equal = false;
+
+        if (o instanceof User) {
+            User user = (User) o;
+            equal = email.equals(user.getEmail());
+        }
+
+        return equal;
     }
 }

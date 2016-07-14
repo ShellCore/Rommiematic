@@ -2,6 +2,10 @@ package com.edx.shell.android.rommiematic;
 
 import android.app.Application;
 
+import com.edx.shell.android.rommiematic.addContact.di.AddContactComponent;
+import com.edx.shell.android.rommiematic.addContact.di.AddContactModule;
+import com.edx.shell.android.rommiematic.addContact.di.DaggerAddContactComponent;
+import com.edx.shell.android.rommiematic.addContact.ui.AddContactView;
 import com.edx.shell.android.rommiematic.domain.di.DomainModule;
 import com.edx.shell.android.rommiematic.libs.di.LibsModule;
 import com.edx.shell.android.rommiematic.login.di.DaggerLoginComponent;
@@ -12,6 +16,12 @@ import com.edx.shell.android.rommiematic.main.di.DaggerMainComponent;
 import com.edx.shell.android.rommiematic.main.di.MainComponent;
 import com.edx.shell.android.rommiematic.main.di.MainModule;
 import com.edx.shell.android.rommiematic.main.ui.MainView;
+import com.edx.shell.android.rommiematic.roomies.di.DaggerRoomiesComponent;
+import com.edx.shell.android.rommiematic.roomies.di.RoomiesComponent;
+import com.edx.shell.android.rommiematic.roomies.di.RoomiesModule;
+import com.edx.shell.android.rommiematic.roomies.ui.RoomiesActivity;
+import com.edx.shell.android.rommiematic.roomies.ui.RoomiesView;
+import com.edx.shell.android.rommiematic.roomies.ui.adapters.OnItemClickListener;
 import com.firebase.client.Firebase;
 
 /**
@@ -67,6 +77,24 @@ public class RommiematicApplication extends Application {
                 .domainModule(domainModule)
                 .libsModule(new LibsModule(null))
                 .mainModule(new MainModule(view))
+                .build();
+    }
+
+    public RoomiesComponent getRoomiesComponent(RoomiesActivity activity, RoomiesView view, OnItemClickListener clickListener) {
+        return DaggerRoomiesComponent.builder()
+                .rommiematicApplicationModule(appModule)
+                .domainModule(domainModule)
+                .libsModule(new LibsModule(activity))
+                .roomiesModule(new RoomiesModule(view, clickListener))
+                .build();
+    }
+
+    public AddContactComponent getAddContactComponent(AddContactView view) {
+        return DaggerAddContactComponent.builder()
+                .rommiematicApplicationModule(appModule)
+                .domainModule(domainModule)
+                .libsModule(new LibsModule(null))
+                .addContactModule(new AddContactModule(view))
                 .build();
     }
 }

@@ -2,9 +2,12 @@ package com.edx.shell.android.rommiematic.login;
 
 import com.edx.shell.android.rommiematic.domain.FirebaseAPI;
 import com.edx.shell.android.rommiematic.domain.FirebaseActionListenerCallback;
+import com.edx.shell.android.rommiematic.entities.User;
 import com.edx.shell.android.rommiematic.libs.base.EventBus;
 import com.edx.shell.android.rommiematic.login.events.LoginEvent;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 /**
  * @author Shell_Core
@@ -12,7 +15,7 @@ import com.firebase.client.FirebaseError;
 public class LoginRepositoryImpl implements LoginRepository {
 
     // Servicios
-    private EventBus    eventBus;
+    private EventBus eventBus;
     private FirebaseAPI firebaseAPI;
 
     public LoginRepositoryImpl(EventBus eventBus, FirebaseAPI firebaseAPI) {
@@ -27,7 +30,7 @@ public class LoginRepositoryImpl implements LoginRepository {
                 @Override
                 public void onSuccess() {
                     String email = firebaseAPI.getAuthEmail();
-                    postEvent(LoginEvent.ON_SIGNIN_SUCCESS, email);
+                    initSignin();
                 }
 
                 @Override
@@ -48,6 +51,34 @@ public class LoginRepositoryImpl implements LoginRepository {
                     postEvent(LoginEvent.ON_FAILED_TO_RECOVER_SESSION);
                 }
             });
+        }
+    }
+
+    private void initSignin() {
+        firebaseAPI.getMyUserReference()
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        User currentUser = dataSnapshot.getValue(User.class);
+                        if (currentUser == null) {
+                            registerNewUser();
+                        }
+                        postEvent(LoginEvent.ON_SIGNIN_SUCCESS);
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
+    }
+
+    private void registerNewUser() {
+        String email = firebaseAPI.getAuthEmail();
+        if (email != null) {
+            User currentUser = new User();
+            currentUser.setEmail(email);
+            firebaseAPI.getMyUserReference().setValue(currentUser);
         }
     }
 
