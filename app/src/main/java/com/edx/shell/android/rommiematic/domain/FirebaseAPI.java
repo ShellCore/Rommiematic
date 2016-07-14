@@ -13,6 +13,8 @@ import java.util.Map;
  */
 public class FirebaseAPI {
 
+    private static final String USERS_PATH = "users";
+    private static final String CONTACTS_PATH = "contacts";
     private Firebase firebase;
     private ChildEventListener listener;
 
@@ -20,7 +22,7 @@ public class FirebaseAPI {
         this.firebase = firebase;
     }
 
-    public void subscribe (final FirebaseEventListenerCallback listenerCallback) {
+    public void subscribe(final FirebaseEventListenerCallback listenerCallback) {
         if (listener == null) {
             listener = new ChildEventListener() {
                 @Override
@@ -29,7 +31,8 @@ public class FirebaseAPI {
                 }
 
                 @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                }
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
@@ -37,7 +40,8 @@ public class FirebaseAPI {
                 }
 
                 @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                }
 
                 @Override
                 public void onCancelled(FirebaseError firebaseError) {
@@ -85,7 +89,7 @@ public class FirebaseAPI {
         });
     }
 
-    public void signup(String email, String pass, final FirebaseActionListenerCallback listenerCallback) {
+    public void signup(final String email, String pass, final FirebaseActionListenerCallback listenerCallback) {
         firebase.createUser(email, pass, new Firebase.ValueResultHandler<Map<String, Object>>() {
 
             @Override
@@ -106,5 +110,31 @@ public class FirebaseAPI {
         } else {
             listenerCallback.onError(null);
         }
+    }
+
+    // Obtener contactos
+
+    public Firebase getUserReference(String email) {
+        Firebase reference = null;
+        if (email != null) {
+            String emailKey = email.replace(".", "_");
+            reference = firebase.getRoot()
+                    .child(USERS_PATH)
+                    .child(emailKey);
+        }
+        return reference;
+    }
+
+    public Firebase getContactsReference(String email) {
+        return getUserReference(email).child(CONTACTS_PATH);
+    }
+
+    public Firebase getMyContactsReference() {
+        return getContactsReference(getAuthEmail());
+    }
+
+
+    public Firebase getMyUserReference() {
+        return getUserReference(getAuthEmail());
     }
 }

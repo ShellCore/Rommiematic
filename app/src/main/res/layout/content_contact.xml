@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp">
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/img_avatar"
@@ -16,9 +17,9 @@
         android:id="@+id/txt_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Large text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/img_avatar"
         android:layout_toRightOf="@+id/img_avatar"
-        android:layout_toEndOf="@+id/img_avatar" />
+        android:text="Large text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 </RelativeLayout>
