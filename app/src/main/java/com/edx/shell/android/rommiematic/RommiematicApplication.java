@@ -23,6 +23,8 @@ import com.edx.shell.android.rommiematic.roomies.ui.RoomiesActivity;
 import com.edx.shell.android.rommiematic.roomies.ui.RoomiesView;
 import com.edx.shell.android.rommiematic.roomies.ui.adapters.OnItemClickListener;
 import com.firebase.client.Firebase;
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
 /**
  * @author Shell_Core
@@ -43,6 +45,7 @@ public class RommiematicApplication extends Application {
         super.onCreate();
         setupFirebase();
         initModules();
+        initDatabse();
     }
 
     private void setupFirebase() {
@@ -52,6 +55,10 @@ public class RommiematicApplication extends Application {
     private void initModules() {
         appModule = new RommiematicApplicationModule(this);
         domainModule = new DomainModule(FIREBASE_URL);
+    }
+
+    private void initDatabse() {
+        FlowManager.init(new FlowConfig.Builder(this).build());
     }
 
     public static String getEmailKey() {

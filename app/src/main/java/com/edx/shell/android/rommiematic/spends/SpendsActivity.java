@@ -1,15 +1,15 @@
-package com.edx.shell.android.rommiematic.costs;
+package com.edx.shell.android.rommiematic.spends;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.edx.shell.android.rommiematic.R;
 
-public class CostActivity extends AppCompatActivity {
+public class SpendsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cost);
+        setContentView(R.layout.activity_spends);
     }
 }

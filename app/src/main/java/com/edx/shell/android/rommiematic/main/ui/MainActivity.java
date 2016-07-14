@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.edx.shell.android.rommiematic.costs.CostActivity;
+import com.edx.shell.android.rommiematic.spends.SpendsActivity;
 import com.edx.shell.android.rommiematic.R;
 import com.edx.shell.android.rommiematic.RommiematicApplication;
 import com.edx.shell.android.rommiematic.roomies.ui.RoomiesActivity;
@@ -118,6 +118,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @OnClick(R.id.img_cost)
     @Override
     public void handleCost() {
-        startActivity(new Intent(this, CostActivity.class));
+        startActivity(new Intent(this, SpendsActivity.class));
     }
 }
