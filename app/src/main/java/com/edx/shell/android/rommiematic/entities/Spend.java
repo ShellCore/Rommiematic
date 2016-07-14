@@ -10,7 +10,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
  * @author Shell_Core
  */
 @Table(database = RoomiematicDatabase.class)
-public class Spending extends BaseModel {
+public class Spend extends BaseModel {
 
     @Column
     @PrimaryKey
@@ -21,6 +21,9 @@ public class Spending extends BaseModel {
 
     @Column
     private double amount;
+
+    @Column
+    private String icon;
 
     public long getId() {
         return id;
@@ -44,5 +47,13 @@ public class Spending extends BaseModel {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
