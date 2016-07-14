@@ -18,4 +18,5 @@
     <string name="addContact.message.contactAdded">Contacto agregado exitosamente</string>
     <string name="addContact.error.message">Imposible agregar, usuario no existente</string>
     <string name="addContact.hint.email">Correo electrónico</string>
+    <string name="roomies.title">Roomies</string>
 </resources>

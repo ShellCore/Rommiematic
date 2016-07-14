@@ -84,6 +84,7 @@ public class RoomiesActivity extends AppCompatActivity implements RoomiesView, O
     }
 
     private void setupToolbar() {
+        toolbar.setTitle(getString(R.string.roomies_title));
         setSupportActionBar(toolbar);
     }
 
