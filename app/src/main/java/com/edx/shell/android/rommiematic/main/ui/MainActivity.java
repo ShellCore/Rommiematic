@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.edx.shell.android.rommiematic.spends.SpendsActivity;
+import com.edx.shell.android.rommiematic.spends.ui.SpendsActivity;
 import com.edx.shell.android.rommiematic.R;
 import com.edx.shell.android.rommiematic.RommiematicApplication;
 import com.edx.shell.android.rommiematic.roomies.ui.RoomiesActivity;

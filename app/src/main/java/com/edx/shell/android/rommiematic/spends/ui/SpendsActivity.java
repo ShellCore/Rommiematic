@@ -1,4 +1,4 @@
-package com.edx.shell.android.rommiematic.spends;
+package com.edx.shell.android.rommiematic.spends.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
