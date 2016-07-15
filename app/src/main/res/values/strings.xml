@@ -20,4 +20,6 @@
     <string name="addContact.hint.email">Correo electrónico</string>
     <string name="roomies.title">Roomies</string>
     <string name="spends_title">Gastos</string>
+    <string name="addSpend.edt.description">Descripción</string>
+    <string name="addSpend.edt.amount">Cantidad</string>
 </resources>

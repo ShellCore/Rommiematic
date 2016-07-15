@@ -29,6 +29,9 @@
         <activity
             android:name=".spends.ui.SpendsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".addSpend.AddSpendActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -6,4 +6,5 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="contact_image_size">64dp</dimen>
     <dimen name="spend_image_size">60dp</dimen>
+    <dimen name="spend_option_size">100dp</dimen>
 </resources>

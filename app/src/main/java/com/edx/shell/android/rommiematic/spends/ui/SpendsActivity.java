@@ -1,5 +1,6 @@
 package com.edx.shell.android.rommiematic.spends.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -12,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.edx.shell.android.rommiematic.R;
 import com.edx.shell.android.rommiematic.RommiematicApplication;
+import com.edx.shell.android.rommiematic.addSpend.AddSpendActivity;
 import com.edx.shell.android.rommiematic.entities.Spend;
 import com.edx.shell.android.rommiematic.spends.SpendsPresenter;
 import com.edx.shell.android.rommiematic.spends.ui.adapters.OnItemClickListener;
@@ -111,6 +113,6 @@ public class SpendsActivity extends AppCompatActivity implements SpendsView, OnI
     @OnClick(R.id.add)
     @Override
     public void addSpend() {
-        // TODO Realizar cuadro de dialogo para agregar un gasto
+        startActivity(new Intent(this, AddSpendActivity.class));
     }
 }
