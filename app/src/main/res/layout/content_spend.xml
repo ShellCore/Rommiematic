@@ -25,12 +25,11 @@
             android:id="@+id/txt_spend_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_align="@+id/img_spend_icon"
-            android:text="Luz"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_above="@+id/txt_spend_amount"
             android:layout_alignLeft="@+id/txt_spend_amount"
-            android:layout_alignStart="@+id/txt_spend_amount" />
+            android:layout_alignStart="@+id/txt_spend_amount"
+            android:text="Luz"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/txt_spend_amount"
@@ -41,6 +40,18 @@
             android:layout_toRightOf="@+id/img_spend_icon"
             android:text="$88888.00"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txt_spend_amount"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_delete"
+            android:tint="@color/colorNoAccent" />
 
     </RelativeLayout>
 

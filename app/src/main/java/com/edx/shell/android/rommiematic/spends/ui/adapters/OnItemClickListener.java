@@ -7,4 +7,5 @@ import com.edx.shell.android.rommiematic.entities.Spend;
  */
 public interface OnItemClickListener {
     void onItemClick(Spend spend);
+    void onDelete(Spend spend);
 }

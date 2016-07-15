@@ -22,6 +22,11 @@ import com.edx.shell.android.rommiematic.roomies.di.RoomiesModule;
 import com.edx.shell.android.rommiematic.roomies.ui.RoomiesActivity;
 import com.edx.shell.android.rommiematic.roomies.ui.RoomiesView;
 import com.edx.shell.android.rommiematic.roomies.ui.adapters.OnItemClickListener;
+import com.edx.shell.android.rommiematic.spends.di.DaggerSpendsComponent;
+import com.edx.shell.android.rommiematic.spends.di.SpendsComponent;
+import com.edx.shell.android.rommiematic.spends.di.SpendsModule;
+import com.edx.shell.android.rommiematic.spends.ui.SpendsActivity;
+import com.edx.shell.android.rommiematic.spends.ui.SpendsView;
 import com.firebase.client.Firebase;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
@@ -102,6 +107,15 @@ public class RommiematicApplication extends Application {
                 .domainModule(domainModule)
                 .libsModule(new LibsModule(null))
                 .addContactModule(new AddContactModule(view))
+                .build();
+    }
+
+    public SpendsComponent getSpendsComponent(SpendsActivity activity, SpendsView view, com.edx.shell.android.rommiematic.spends.ui.adapters.OnItemClickListener clickListener) {
+        return DaggerSpendsComponent.builder()
+                .rommiematicApplicationModule(appModule)
+                .domainModule(domainModule)
+                .libsModule(new LibsModule(activity))
+                .spendsModule(new SpendsModule(view, clickListener))
                 .build();
     }
 }

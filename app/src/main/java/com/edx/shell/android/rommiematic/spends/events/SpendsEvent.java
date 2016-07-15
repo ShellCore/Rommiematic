@@ -2,17 +2,19 @@ package com.edx.shell.android.rommiematic.spends.events;
 
 import com.edx.shell.android.rommiematic.entities.Spend;
 
+import java.util.List;
+
 /**
  * @author Shell_Core
  */
 public class SpendsEvent {
 
-    public static final int ON_SPEND_ADDDED = 0;
-    public static final int ON_SPEND_REMOVED = 1;
+    public static final int ON_SPEND_READED = 0;
+    public static final int ON_SPEND_ADDDED = 1;
+    public static final int ON_SPEND_REMOVED = 2;
 
     private int type;
-    private String error;
-    private Spend spend;
+    private List<Spend> spends;
 
     public int getType() {
         return type;
@@ -22,19 +24,11 @@ public class SpendsEvent {
         this.type = type;
     }
 
-    public String getError() {
-        return error;
+    public List<Spend> getSpends() {
+        return spends;
     }
 
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public Spend getSpend() {
-        return spend;
-    }
-
-    public void setSpend(Spend spend) {
-        this.spend = spend;
+    public void setSpends(List<Spend> spends) {
+        this.spends = spends;
     }
 }

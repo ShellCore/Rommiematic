@@ -9,6 +9,8 @@ import com.edx.shell.android.rommiematic.spends.events.SpendsEvent;
 public interface SpendsPresenter {
     void onCreate();
     void onDestroy();
-    void onEventMainThread(SpendsEvent event);
+    void getSpends();
     void removeSpend(Spend spend);
+    void onEventMainThread(SpendsEvent event);
+
 }
