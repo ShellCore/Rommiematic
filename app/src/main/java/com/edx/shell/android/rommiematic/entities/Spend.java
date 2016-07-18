@@ -13,7 +13,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 public class Spend extends BaseModel {
 
     @Column
-    @PrimaryKey
+    @PrimaryKey (autoincrement = true)
     private long id;
 
     @Column

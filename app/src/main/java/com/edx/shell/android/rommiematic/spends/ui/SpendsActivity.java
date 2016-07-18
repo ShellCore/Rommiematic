@@ -13,7 +13,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.edx.shell.android.rommiematic.R;
 import com.edx.shell.android.rommiematic.RommiematicApplication;
-import com.edx.shell.android.rommiematic.addSpend.AddSpendActivity;
+import com.edx.shell.android.rommiematic.addSpend.ui.AddSpendActivity;
 import com.edx.shell.android.rommiematic.entities.Spend;
 import com.edx.shell.android.rommiematic.spends.SpendsPresenter;
 import com.edx.shell.android.rommiematic.spends.ui.adapters.OnItemClickListener;
@@ -28,6 +28,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SpendsActivity extends AppCompatActivity implements SpendsView, OnItemClickListener {
+
+    // Constantes
+    public static final int CONTACT_ADDED = 0;
 
     // Variables
     private RommiematicApplication app;
@@ -113,6 +116,15 @@ public class SpendsActivity extends AppCompatActivity implements SpendsView, OnI
     @OnClick(R.id.add)
     @Override
     public void addSpend() {
-        startActivity(new Intent(this, AddSpendActivity.class));
+        startActivityForResult(new Intent(this, AddSpendActivity.class), CONTACT_ADDED);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CONTACT_ADDED) {
+            if (resultCode == RESULT_OK) {
+                presenter.getSpends();
+            }
+        }
     }
 }

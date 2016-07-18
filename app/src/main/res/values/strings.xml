@@ -22,4 +22,8 @@
     <string name="spends_title">Gastos</string>
     <string name="addSpend.edt.description">Descripción</string>
     <string name="addSpend.edt.amount">Cantidad</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+    <string name="addSpend">Agregar gasto</string>
+    <string name="spendnotAddedError">No se pudo crear el gasto</string>
 </resources>

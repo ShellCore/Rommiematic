@@ -30,7 +30,7 @@
             android:name=".spends.ui.SpendsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".addSpend.AddSpendActivity"
+            android:name=".addSpend.ui.AddSpendActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

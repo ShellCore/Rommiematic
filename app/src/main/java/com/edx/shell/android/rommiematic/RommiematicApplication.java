@@ -6,6 +6,11 @@ import com.edx.shell.android.rommiematic.addContact.di.AddContactComponent;
 import com.edx.shell.android.rommiematic.addContact.di.AddContactModule;
 import com.edx.shell.android.rommiematic.addContact.di.DaggerAddContactComponent;
 import com.edx.shell.android.rommiematic.addContact.ui.AddContactView;
+import com.edx.shell.android.rommiematic.addSpend.di.AddSpendComponent;
+import com.edx.shell.android.rommiematic.addSpend.di.AddSpendModule;
+import com.edx.shell.android.rommiematic.addSpend.di.DaggerAddSpendComponent;
+import com.edx.shell.android.rommiematic.addSpend.ui.AddSpendActivity;
+import com.edx.shell.android.rommiematic.addSpend.ui.AddSpendView;
 import com.edx.shell.android.rommiematic.domain.di.DomainModule;
 import com.edx.shell.android.rommiematic.libs.di.LibsModule;
 import com.edx.shell.android.rommiematic.login.di.DaggerLoginComponent;
@@ -39,7 +44,7 @@ public class RommiematicApplication extends Application {
     // Constantes
     public static final String EMAIL_KEY = "email";
     public static final String SHARED_PREFERENCES_NAME = "UserPrefs";
-    public static final String FIREBASE_URL = "https://rommiematic.firebaseio.com/";
+    public static final String FIREBASE_URL = "https://rommiematic.firebaseIO.com/";
     public static final String ABOUT_URL = "http://shellcore.github.io/Perfil-personal";
 
     private RommiematicApplicationModule appModule;
@@ -116,6 +121,15 @@ public class RommiematicApplication extends Application {
                 .domainModule(domainModule)
                 .libsModule(new LibsModule(activity))
                 .spendsModule(new SpendsModule(view, clickListener))
+                .build();
+    }
+
+    public AddSpendComponent getAddSpendComponent(AddSpendActivity activity, AddSpendView view) {
+        return DaggerAddSpendComponent.builder()
+                .rommiematicApplicationModule(appModule)
+                .domainModule(domainModule)
+                .libsModule(new LibsModule(activity))
+                .addSpendModule(new AddSpendModule(view))
                 .build();
     }
 }

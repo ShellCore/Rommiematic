@@ -1,6 +1,5 @@
 package com.edx.shell.android.rommiematic.spends.ui.adapters;
 
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +49,6 @@ public class SpendsAdapter extends RecyclerView.Adapter<SpendsAdapter.ViewHolder
         holder.setClickListener(spend, clickListener);
         holder.txtSpendDescription.setText(spend.getDescription());
         holder.txtSpendAmount.setText(Util.getCurrencyFromDouble(spend.getAmount()));
-        holder.imgSpendIcon.setImageURI(Uri.parse(spend.getIcon()));
     }
 
     @Override
