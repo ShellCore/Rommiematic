@@ -9,15 +9,32 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        // Referencia al repositorio para trabajar con DBFlow
+        maven {
+            url "https://jitpack.io"
+        }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    supportVersion = '23.1.1'
+    firebaseVersion = '2.5.2'
+    butterknifeVersion = '7.0.1'
+    eventbusVersion = '3.0.0'
+    circleimageviewVersion = '2.0.0'
+    glideVersion = '3.7.0'
+    jsr250Version = '1.0'
+    daggerVersion = '2.0.1'
+    dbflowVersion = "3.0.1"
 }
