@@ -2,6 +2,7 @@ package com.edx.shell.android.rommiematic.domain;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.NumberFormat;
 
 /**
  * @author Shell_Core
@@ -41,5 +42,10 @@ public class Util {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public static String getCurrencyFromDouble(double value) {
+        NumberFormat currencyInstance = NumberFormat.getCurrencyInstance();
+        return currencyInstance.format(value);
     }
 }

@@ -23,9 +23,15 @@
         <activity
             android:name=".main.ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".roomies.ui.RoomiesActivity"
+        <activity
+            android:name=".roomies.ui.RoomiesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".costs.CostActivity" />
+        <activity
+            android:name=".spends.ui.SpendsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".addSpend.ui.AddSpendActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

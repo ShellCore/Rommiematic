@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Rommiematic</string>
+    <string name="app_name">Roomiematic</string>
     <string name="login.edt.user">Usuario</string>
     <string name="login.edt.password">Contraseña</string>
     <string name="login.btn.signin">Iniciar sesión</string>
@@ -19,4 +19,11 @@
     <string name="addContact.error.message">Imposible agregar, usuario no existente</string>
     <string name="addContact.hint.email">Correo electrónico</string>
     <string name="roomies.title">Roomies</string>
+    <string name="spends_title">Gastos</string>
+    <string name="addSpend.edt.description">Descripción</string>
+    <string name="addSpend.edt.amount">Cantidad</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+    <string name="addSpend">Agregar gasto</string>
+    <string name="spendnotAddedError">No se pudo crear el gasto</string>
 </resources>

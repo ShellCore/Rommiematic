@@ -16,6 +16,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        // Referencia al repositorio para trabajar con DBFlow
+        maven {
+            url "https://jitpack.io"
+        }
     }
 }
 
@@ -32,4 +36,5 @@ ext {
     glideVersion = '3.7.0'
     jsr250Version = '1.0'
     daggerVersion = '2.0.1'
+    dbflowVersion = "3.0.1"
 }
